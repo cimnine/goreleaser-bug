@@ -7,7 +7,9 @@ before:
     # you may remove this if you don't need go generate
     - go generate ./...
 builds:
-  - env:
+  - id: hello
+    binary: hello
+    env:
       - CGO_ENABLED=0
     goos:
       - linux
@@ -33,3 +35,5 @@ changelog:
 dockers:
 - image_templates:
   - "docker.io/foo/bar:v{{ .Version }}"
+  ids:
+  - hello
